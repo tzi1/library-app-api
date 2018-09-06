@@ -120,6 +120,12 @@ class UserDao {
         let sqlParams = {$id: id};
         return this.common.run(sqlRequest, sqlParams);
     };
+
+    findTakenBooks(id) {
+      let sqlRequest = "select t.bookId, b.title, t.takenAt from `transaction` t join `book` b on b.id = t.bookId where t.userId=$id and t.returnedAt is null";
+      let sqlParams = {$id: id};
+      return this.common.findAll(sqlRequest, sqlParams);
+    }
 }
 
 module.exports = UserDao;

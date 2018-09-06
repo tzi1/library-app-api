@@ -9,6 +9,10 @@ const userController = new UserController();
 /**
  * User Entity routes
  */
+router.get('/:id/books', function(req, res){
+  userController.findTakenBooks(req, res);
+});
+
 router.get('/count', function (req, res) {
     userController.countAll(res);
 });

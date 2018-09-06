@@ -111,6 +111,14 @@ class UserController {
             .then(this.common.existsSuccess(res))
             .catch(this.common.findError(res));
     };
+
+    findTakenBooks(req, res) {
+      let userId = req.params.id;
+
+      this.userDao.findTakenBooks(userId)
+        .then(this.common.existsSuccess(res))
+        .catch(this.common.findError(res));
+    }
 }
 
 module.exports = UserController;
