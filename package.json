@@ -1,0 +1,16 @@
+{
+  "name": "nodejs-rest-api-sqlite",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "dependencies": {
+    "body-parser": "*",
+    "ejs": "*",
+    "express": "*",
+    "sqlite": "*",
+    "bluebird": "*"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
