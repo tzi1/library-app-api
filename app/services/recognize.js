@@ -8,6 +8,7 @@ const userDao = new UserDao();
 const EXT = '.jpg';
 const tmpFilePath = 'tempfile.jpg';
 const modelFileName = `${__dirname}/../../model.json`;
+const predictionTreshold = 0.6;
 
 const recognizer = fr.FaceRecognizer();
 
@@ -37,7 +38,7 @@ function predict(imagePath) {
     const image = fr.loadImage(imagePath);
     // const predictions = recognizer.predict(imagePath);
     const predictions = recognizer.predictBest(image);
-    console.log(predictions);
+    return predictions;
 }
 
 function saveModel() {
@@ -70,18 +71,21 @@ function bootstrapModel() {
 }
 
 function saveImageToFile(image) {
-    fs.writeFileSync(tmpFilePath, image);
+    var base64Data = image.replace(/^data:image\/jpeg;base64,/, "");
+
+    console.log('writting out fake file');
+    fs.writeFileSync(tmpFilePath, base64Data, 'base64', function(err) {
+        console.log(err);
+    });
 }
 
 function recognize(imageFile) {
-    // save to file workaround and return path
-    //TODO generate random file name
     saveImageToFile(imageFile);
 
     const prediction = predict(tmpFilePath);
     fs.unlink(tmpFilePath);
-
-    return prediction;
+    
+    return prediction.distance > predictionTreshold ? -1 : prediction.className;
 }
 
 module.exports = {

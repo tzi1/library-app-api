@@ -7,8 +7,7 @@ const UserController = require('../../controller/userController');
 const userController = new UserController();
 
 router.post('/recognize', function (req, res) {
-    const image = req.body.image;
-    userController.recognizeUser(image);
+    userController.recognizeUser(req, res);
 });
 
 /**

@@ -19,8 +19,12 @@ class UserController {
         this.common = new ControllerCommon();
     }
 
-    recognizeUser(image) {
-        rcgnz.recognize(image);
+    recognizeUser(req, res) {
+        const imageBase64 = req.body.image;
+        console.log('recognizing image...');
+
+        const userId = rcgnz.recognize(imageBase64);
+        res.send({userId});
     }
 
     /**
