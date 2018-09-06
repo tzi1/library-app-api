@@ -20,10 +20,9 @@ class Common {
                     reject(
                         new DaoError(20, "Internal server error")
                     );
-                } else if (rows === null || rows.length === 0) {
-                    reject(
-                        new DaoError(21, "Entity not found")
-                    );
+                } 
+                else if (rows === null || rows.length === 0) {
+                    resolve([]);
                 } else {
                     resolve(rows);
                 }

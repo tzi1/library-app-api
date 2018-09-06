@@ -8,7 +8,7 @@ const userDao = new UserDao();
 const EXT = '.jpg';
 const tmpFilePath = 'tempfile.jpg';
 const modelFileName = `${__dirname}/../../model.json`;
-const predictionTreshold = 0.45;
+const predictionTreshold = 0.35;
 
 const recognizer = fr.FaceRecognizer();
 

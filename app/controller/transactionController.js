@@ -34,18 +34,16 @@ class TransactionController {
         return this.transactionDao.takeBook(transaction)
             .then(this.common.editSuccess(res))
             .catch(this.common.serverError(res));
-
-        // if (req.body.id) {
-        //     return this.bookDao.createWithId(book)
-        //         .then(this.common.editSuccess(res))
-        //         .catch(this.common.serverError(res));
-        // }
-        // else {
-        //     return this.bookDao.create(book)
-        //         .then(this.common.editSuccess(res))
-        //         .catch(this.common.serverError(res));
-        // }
     };
+
+    return(req, res) {
+        const userId = req.body.userId;
+        const bookId = req.body.bookId;
+
+        return this.transactionDao.returnBook(userId, bookId)
+            .then(this.common.editSuccess(res))
+            .catch(this.common.serverError(res));
+    }
 }
 
 module.exports = TransactionController;

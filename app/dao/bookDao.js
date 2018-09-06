@@ -30,7 +30,7 @@ class BookDao {
      * @return all entities
      */
     findAll() {
-        let sqlRequest = "select b.id, b.title, t.takenAt, t.userId, u.firstName, u.lastName from `book` b left join `transaction` t on t.bookId = b.Id and t.returnedAt is null left join `user` u on u.id = t.userId";
+        let sqlRequest = "select b.id as bookId, b.title, t.takenAt, t.userId, u.firstName, u.lastName from `book` b left join `transaction` t on t.bookId = b.Id and t.returnedAt is null left join `user` u on u.id = t.userId";
         return this.common.findAll(sqlRequest);
     };
 

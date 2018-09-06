@@ -8,8 +8,12 @@ const transactionController = new TransactionController();
 /**
  * Book Entity routes
  */
-router.post('/create', function (req, res) {
+router.post('/takeBook', function (req, res) {
     transactionController.create(req, res);
+});
+
+router.post('/returnBook', function (req, res) {
+    transactionController.return(req, res);
 });
 
 module.exports = router;
