@@ -21,4 +21,4 @@ app.use(bodyParser.json());
 
 /* Router configuration */
 const REST_API_ROOT = '/api';
-app.use(REST_API_ROOT, require('./app/routes/Router'));
+app.use(REST_API_ROOT, require('./app/routes/router'));

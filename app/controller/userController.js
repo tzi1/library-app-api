@@ -7,6 +7,8 @@ const ControllerCommon = require('./common/controllerCommon');
 /* Load User entity */
 const User = require('../model/user');
 
+const rcgnz = require('../services/recognize');
+
 /**
  * User Controller
  */
@@ -15,6 +17,14 @@ class UserController {
     constructor() {
         this.userDao = new UserDao();
         this.common = new ControllerCommon();
+    }
+
+    recognizeUser(req, res) {
+        const imageBase64 = req.body.image;
+        console.log('recognizing image...');
+
+        const userId = rcgnz.recognize(imageBase64);
+        res.send({userId});
     }
 
     /**

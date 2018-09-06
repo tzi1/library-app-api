@@ -6,6 +6,10 @@ const router = express.Router();
 const UserController = require('../../controller/userController');
 const userController = new UserController();
 
+router.post('/recognize', function (req, res) {
+    userController.recognizeUser(req, res);
+});
+
 /**
  * User Entity routes
  */
