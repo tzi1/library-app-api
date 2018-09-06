@@ -84,7 +84,6 @@ class BookController {
                 .then(this.common.editSuccess(res))
                 .catch(this.common.serverError(res));
         }
-
     };
 
     /**
