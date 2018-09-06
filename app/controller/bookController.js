@@ -72,6 +72,7 @@ class BookController {
         if (req.body.id) {
             book.id = req.body.id;
         }
+        book.title = req.body.title;
 
         if (req.body.id) {
             return this.bookDao.createWithId(book)
