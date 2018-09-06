@@ -7,6 +7,8 @@ const ControllerCommon = require('./common/controllerCommon');
 /* Load User entity */
 const User = require('../model/user');
 
+const rcgnz = require('../services/recognize');
+
 /**
  * User Controller
  */
@@ -15,6 +17,10 @@ class UserController {
     constructor() {
         this.userDao = new UserDao();
         this.common = new ControllerCommon();
+    }
+
+    recognizeUser(image) {
+        rcgnz.recognize(image);
     }
 
     /**
