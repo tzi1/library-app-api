@@ -4,12 +4,13 @@
   "description": "",
   "author": "",
   "dependencies": {
+    "bluebird": "*",
     "body-parser": "*",
+    "cors": "^2.8.4",
     "ejs": "*",
     "express": "*",
-    "sqlite": "*",
-    "bluebird": "*",
-    "face-recognition": "^0.9.3"
+    "face-recognition": "^0.9.3",
+    "sqlite": "*"
   },
   "scripts": {
     "start": "node index.js"

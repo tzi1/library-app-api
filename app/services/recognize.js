@@ -8,7 +8,7 @@ const userDao = new UserDao();
 const EXT = '.jpg';
 const tmpFilePath = 'tempfile.jpg';
 const modelFileName = `${__dirname}/../../model.json`;
-const predictionTreshold = 0.6;
+const predictionTreshold = 0.45;
 
 const recognizer = fr.FaceRecognizer();
 
@@ -38,6 +38,9 @@ function predict(imagePath) {
     const image = fr.loadImage(imagePath);
     // const predictions = recognizer.predict(imagePath);
     const predictions = recognizer.predictBest(image);
+    
+    console.log(recognizer.predict(image))
+
     return predictions;
 }
 
@@ -84,7 +87,7 @@ function recognize(imageFile) {
 
     const prediction = predict(tmpFilePath);
     fs.unlink(tmpFilePath);
-    
+
     return prediction.distance > predictionTreshold ? -1 : prediction.className;
 }
 
