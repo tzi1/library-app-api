@@ -6,7 +6,7 @@ let sqlite3 = require('sqlite3').verbose();
  */
 
 /* Load database file (Creates file if not exists) */
-let db = new sqlite3.Database('./sqlite.db');
+let db = new sqlite3.Database('./BookLibrary.db');
 
 /* Init car and driver tables if they don't exist */
 let init = function () {
